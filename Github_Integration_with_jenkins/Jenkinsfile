@@ -1,0 +1,14 @@
+
+pipeline{
+  agent any
+    stages{
+
+        stage("Run Postman collections test")
+        {
+            steps{
+                bat  ' npm i -g newman '
+                bat  ' "C:/Users/jinan/AppData/Roaming/npm/newman" run "%WORKSPACE%/Collection.json" --disable-unicode" '
+            }
+        }
+    }
+}
