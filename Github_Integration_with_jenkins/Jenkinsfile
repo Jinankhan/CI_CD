@@ -12,13 +12,13 @@ pipeline {
 
     post {
         always {
-            emailext {
+            emailext(
                 subject "${BUILD_STATUS}: ${JOB_NAME} #${BUILD_NUMBER}"
                 body "<html><body><p>Check console output at <a href='${BUILD_URL}'>${JOB_NAME} #${BUILD_NUMBER}</a></p></body></html>"
                 to 'malicecoma@example.com'
                 from 'jenkiBot'
                 mimeType 'text/html'
-            }
+            )
         }
     }
 }
