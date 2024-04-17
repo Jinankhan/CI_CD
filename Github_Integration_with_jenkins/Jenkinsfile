@@ -9,6 +9,22 @@ pipeline{
                 bat  ' npm i -g newman '
                 bat  ' "C:/Users/jinan/AppData/Roaming/npm/newman" run "%WORKSPACE%/Github_Integration_with_jenkins/Collection.json" --disable-unicode" '
             }
+            
+        }
+
+        post {
+            
+            always {
+            emailext{
+                subject: "Build status ${BUILD_STATUS}: ${JOB_NAME} #${BUILD_NUMBER}"
+                body: " <html><body><p>Check console output at <a href='${BUILD_URL}'>${JOB_NAME} #${BUILD_NUMBER}</a></p></body></html>"
+                to: 'malicecoma@example.com'
+                from: 'jenkiBot'
+                mimeType: 'text/html'
+
+            }
+    
+}
         }
     }
 }
