@@ -7,7 +7,7 @@ pipeline{
         {
             steps{
                 bat  ' npm i -g newman '
-                bat  ' "C:/Users/jinan/AppData/Roaming/npm/newman" run "%WORKSPACE%/Collection.json" --disable-unicode" '
+                bat  ' "C:/Users/jinan/AppData/Roaming/npm/newman" run "%WORKSPACE%/Github_Integration_with_jenkins/Collection.json" --disable-unicode" '
             }
         }
     }
