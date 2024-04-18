@@ -1,7 +1,5 @@
 pipeline {
     agent any
-
-
     stages {
         stage('Run Postman collections test') {
             steps {
